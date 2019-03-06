@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Linq.Expansion
 {
-    public static class DictionaryExpansion
+    public static partial class LinqExpansion
     {
         public static bool Empty<T1, T2>(this IDictionary<T1, T2> @this)
         {
@@ -27,6 +27,18 @@ namespace Linq.Expansion
                 @this = @this.Skip(size)
                              .ToDictionary(e => e.Key, e => e.Value);
             }
+        }
+
+        public static KeyValuePair<T1, T2> Sample<T1, T2>(this IDictionary<T1, T2> @this, Random random = null)
+        {
+            if (random == null)
+            {
+                RandomInstance = RandomInstance ?? new Random();
+                random = RandomInstance;
+            }
+
+            var index = random.Next(@this.Count());
+            return @this.ElementAt(index);
         }
 
     }

@@ -35,7 +35,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Linq.Expansion\EnumeratorExpansion.cs" />
+    <Compile Include="Linq.Expansion\EnumerableExpansion.cs" />
     <Compile Include="Linq.Expansion\DictionaryExpansion.cs" />
   </ItemGroup>
   <ItemGroup>

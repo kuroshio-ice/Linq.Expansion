@@ -4,8 +4,10 @@ using System.Linq;
 
 namespace Linq.Expansion
 {
-    public static class EnumerableExpansion
+    public static partial class LinqExpansion
     {
+        private static Random RandomInstance = null;
+
         public static bool Empty<T>(this IEnumerable<T> @this)
         {
             return !@this.Any();
@@ -35,7 +37,10 @@ namespace Linq.Expansion
         public static T Sample<T>(this IEnumerable<T> @this, Random random = null)
         {
             if (random == null)
-                random = new Random();
+            {
+                RandomInstance = RandomInstance ?? new Random();
+                random = RandomInstance;
+            }
 
             var index = random.Next(@this.Count());
             return @this.ElementAt(index);

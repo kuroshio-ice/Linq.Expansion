@@ -22,9 +22,10 @@ namespace Linq.Expansion
             }
 
             {
-                var rand = new Random();
-                var h = hoge.Sample(rand);
-                Console.WriteLine($"h: {h}");
+                var h1 = hoge.Sample();
+                var h2 = hoge.Sample();
+                Console.WriteLine($"h1: {h1}");
+                Console.WriteLine($"h2: {h2}");
             }
 
             Console.WriteLine("--- Dictionary ---");
