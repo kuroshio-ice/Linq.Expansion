@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Linq.Expansion
 {
-    public static class EnumeratorExpansion
+    public static class EnumerableExpansion
     {
         public static bool Empty<T>(this IEnumerable<T> @this)
         {
